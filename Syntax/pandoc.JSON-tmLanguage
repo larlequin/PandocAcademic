@@ -1,0 +1,68 @@
+{ "name": "Pandoc",
+  "scopeName": "source.pandoc",
+  "fileTypes": ["markdown", "md", "pandoc", "mdown", "markdn"],
+  "patterns": [
+  	{ "match": "^(%+([^\n]+))",
+  		"name": "metainfo.source.pandoc",
+  		"comment": "Metainformation of the files such as Title, Author, Date"
+	  },
+    { "match": "<!--(.*)-->",
+      "name": "comment.pandoc",
+      "comment": "Comments in HTML format"
+    },
+	  { "match": "^(={3,})(?=[ \t]*$)",
+  		"name": "markup.heading.markdown",
+  		"comment": "Heading"
+	  },
+	  { "match": "^(-{3,})(?=[ \t]*$)",
+  		"name": "markup.heading.2.markdown",
+  		"comment": "Heading"
+	  },
+	  { "match": "^#+([^\n]+)",
+  		"name": "markup.heading.2.markdown",
+  		"comment": "Heading"
+	  },
+	  {	"match": "(\\*\\*|__)(.+)(\\*\\*|__)",
+  		"name": "punctuation.definition.bold.markdown",
+  		"comment": "Bold"
+	  },
+	  { "match": "(\\*|_)(\\w+\\s*\\w+.)(\\*|_)",
+  		"name": "punctuation.definition.italic.markdown",
+  		"comment": "Italic"
+	  },
+    { "match": "\\$([^\\$]+)\\$",
+      "name": "math.pandoc",
+      "comment": "Math LaTeX"
+    },
+    { "name": "citation.bracket.pandoc",
+      "begin": "\\[",
+      "patterns": [
+        { "name": "citation.pandoc",
+          "match": "@[A-Za-z0-9_]+"
+        }
+      ],
+      "end": "\\]"
+    },
+    { "match": "@[A-Za-z0-9_]+",
+      "name": "citation.pandoc",
+      "comment": "Reference citation"
+    },
+    { "match": "!\\[(.*)\\]\\(.*\\)",
+      "name": "link.pandoc",
+      "comment": "Link references"
+    },
+    { "match": "(\\[.*\\])+(\\(http.*\\))+",
+      "name": "link.pandoc",
+      "comment": "Link references"
+    },
+    { "match": "(\\(http(.*)\\))+",
+      "name": "link.pandoc",
+      "comment": "Link references"
+    },
+    { "match": "^\\[\\^(.*)\\]:",
+      "name": "note.pandoc",
+      "comment": "Footnotes and notes"
+    }
+  ],
+  "uuid": "50a29d70-cec4-4462-ad8a-8f44715cb391"
+}

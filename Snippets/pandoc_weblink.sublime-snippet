@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[
+[${1:link}](http://${2:url} "${3:title}")${4}
+]]></content>
+    <tabTrigger>link</tabTrigger>
+    <scope>source.pandoc</scope>
+    <description>Add a website link</description>
+</snippet>

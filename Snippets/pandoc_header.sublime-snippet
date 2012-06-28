@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[
+<!-- [[HEADER]] --> ${1}
+]]></content>
+    <tabTrigger>head</tabTrigger>
+    <scope>source.pandoc</scope>
+    <description>Header option to add custom preambule instructions to the Beamer file</description>
+</snippet>

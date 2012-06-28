@@ -1,0 +1,11 @@
+<snippet>
+    <content><![CDATA[
+% ${1:$TM_FILENAME}
+% ${2:$TM_FULLNAME}
+% ${3:Date}
+${4}
+]]></content>
+    <tabTrigger>%%</tabTrigger>
+    <scope>source.pandoc</scope>
+    <description>Add the heading of the file</description>
+</snippet>

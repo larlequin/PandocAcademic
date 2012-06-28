@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array>
+		<string>markdown</string>
+		<string>md</string>
+		<string>pandoc</string>
+		<string>mdown</string>
+		<string>markdn</string>
+	</array>
+	<key>name</key>
+	<string>Pandoc</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>comment</key>
+			<string>Metainformation of the files such as Title, Author, Date</string>
+			<key>match</key>
+			<string>^(%+([^
+]+))</string>
+			<key>name</key>
+			<string>metainfo.source.pandoc</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Comments in HTML format</string>
+			<key>match</key>
+			<string>&lt;!--(.*)--&gt;</string>
+			<key>name</key>
+			<string>comment.pandoc</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Heading</string>
+			<key>match</key>
+			<string>^(={3,})(?=[ 	]*$)</string>
+			<key>name</key>
+			<string>markup.heading.markdown</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Heading</string>
+			<key>match</key>
+			<string>^(-{3,})(?=[ 	]*$)</string>
+			<key>name</key>
+			<string>markup.heading.2.markdown</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Heading</string>
+			<key>match</key>
+			<string>^#+([^
+]+)</string>
+			<key>name</key>
+			<string>markup.heading.2.markdown</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Bold</string>
+			<key>match</key>
+			<string>(\*\*|__)(.+)(\*\*|__)</string>
+			<key>name</key>
+			<string>punctuation.definition.bold.markdown</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Italic</string>
+			<key>match</key>
+			<string>(\*|_)(\w+\s*\w+.)(\*|_)</string>
+			<key>name</key>
+			<string>punctuation.definition.italic.markdown</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Math LaTeX</string>
+			<key>match</key>
+			<string>\$([^\$]+)\$</string>
+			<key>name</key>
+			<string>math.pandoc</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>\[</string>
+			<key>end</key>
+			<string>\]</string>
+			<key>name</key>
+			<string>citation.bracket.pandoc</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>@[A-Za-z0-9_]+</string>
+					<key>name</key>
+					<string>citation.pandoc</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Reference citation</string>
+			<key>match</key>
+			<string>@[A-Za-z0-9_]+</string>
+			<key>name</key>
+			<string>citation.pandoc</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Link references</string>
+			<key>match</key>
+			<string>!\[(.*)\]\(.*\)</string>
+			<key>name</key>
+			<string>link.pandoc</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Link references</string>
+			<key>match</key>
+			<string>(\[.*\])+(\(http.*\))+</string>
+			<key>name</key>
+			<string>link.pandoc</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Link references</string>
+			<key>match</key>
+			<string>(\(http(.*)\))+</string>
+			<key>name</key>
+			<string>link.pandoc</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Footnotes and notes</string>
+			<key>match</key>
+			<string>^\[\^(.*)\]:</string>
+			<key>name</key>
+			<string>note.pandoc</string>
+		</dict>
+	</array>
+	<key>scopeName</key>
+	<string>source.pandoc</string>
+	<key>uuid</key>
+	<string>50a29d70-cec4-4462-ad8a-8f44715cb391</string>
+</dict>
+</plist>

@@ -1,0 +1,27 @@
+[
+    {
+        "caption": "Pandoc: Convert a Pandoc file to temp HTML and View",
+        "command": "pandoc_convertor",
+        "args":{"openAfter":true,   "target":"html"}
+    },
+    {
+        "caption": "Pandoc: Convert a Pandoc file to HTML",
+        "command": "pandoc_convertor",
+        "args":{"openAfter":false,   "target":"html"}
+    },
+    {
+        "caption": "Pandoc: Convert a Pandoc file to DocX",
+        "command": "pandoc_convertor",
+        "args":{"openAfter":false,   "target":"docx"}
+    },
+    {
+        "caption": "Pandoc: Convert a Pandoc file to PDF",
+        "command": "pandoc_convertor",
+        "args":{"openAfter":false,   "target":"pdf"}
+    },
+    {
+        "caption": "Pandoc: Convert a Pandoc file to Beamer",
+        "command": "pandoc_convertor",
+        "args":{"openAfter":false,   "target":"beamer"}
+    }
+]

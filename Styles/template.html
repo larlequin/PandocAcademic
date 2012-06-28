@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html$if(lang)$ lang="$lang$"$endif$>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+$for(author-meta)$
+  <meta name="author" content="$author-meta$">
+$endfor$
+$if(date-meta)$
+  <meta name="dcterms.date" content="$date-meta$">
+$endif$
+  <title>$if(title-prefix)$$title-prefix$ - $endif$$if(pagetitle)$$pagetitle$$endif$</title>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+<style>
+@media print {.noPrint {display:none;}}
+a, a:visited {color: #004;}
+body {font-family: helvetica; font-size: 9pt;}
+header {border-bottom: 1px solid #000; padding: 3px;}
+header .title {margin-top: 0px; margin-bottom: 0px; border-bottom: none; font-size: 12pt;}
+header .author {margin-top: 0px; margin-bottom: 0px; font-size: 8pt; color: #666}
+header .date {margin-top: 0px; margin-bottom: 0px; font-size: 8pt; color: #666} 
+h1 {border-bottom: 1px solid #ccc; font-size: 14pt; color: #000;}
+h1 a {color: #000; text-decoration: none;}
+h2, h2 a {font-size: 12pt; color: #000; text-decoration: none;}
+h3, h3 a {font-size: 10pt; color: #000; text-decoration: none;}
+header h2 a {font-size: 10pt;}
+header h3 a {font-size: 10pt;}
+$if(highlighting-css)$
+$highlighting-css$
+$endif$
+td.lineNumbers { width: 50px; }
+table.sourceCode {border: 1px solid #ccc;}
+.header-section-number {color: #aac;}
+</style>
+$for(css)$
+  <link rel="stylesheet" href="$css$">
+$endfor$
+$if(math)$
+  $math$
+$endif$
+$for(header-includes)$
+  $header-includes$
+$endfor$
+</head>
+<body>
+$for(include-before)$
+$include-before$
+$endfor$
+$if(title)$
+<header>
+<h1 class="title">$title$</h1>
+$for(author)$
+<h2 class="author">$author$</h2>
+$endfor$
+$if(date)$
+<h3 class="date">$date$</h3>
+$endif$
+</header>
+$endif$
+$if(toc)$
+<div class="noPrint">
+<h1 class="contents">Contents</h1>
+<nav id="$idprefix$TOC">
+$toc$
+</nav>
+</div>
+$endif$
+$body$
+$for(include-after)$
+$include-after$
+$endfor$
+</body>
+</html>

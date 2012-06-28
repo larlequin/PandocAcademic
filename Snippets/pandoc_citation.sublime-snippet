@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[
+[${1:prefix}@${2:CitationKey}] ${3}
+]]></content>
+    <tabTrigger>ci</tabTrigger>
+    <scope>source.pandoc</scope>
+    <description>Add a complete citation</description>
+</snippet>
