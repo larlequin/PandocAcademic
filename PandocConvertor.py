@@ -1,9 +1,10 @@
 # A Sublime Text plugin to convert a Pandoc document into multiple formats:
 #   - html
 #   - docx
+#   - pdf
 #   - beamer
 #
-# The plugin also deal with options embedded in the file to add more functions
+# The plug-in also deal with options embedded in the file to add more functions
 #  such as a table of content, a bibliography or enumerate sections.
 #
 # Different bibliography styles and templates could be chosen.
@@ -11,7 +12,7 @@
 # G.T. Vallet -- Lyon2 University
 # 2012/06/24  -- GPLv3
 #
-# Inspired and canabilize from Pandoc Renderer plugin
+# Inspired and cannibalized from Pandoc Renderer plugin
 #  https://github.com/jclement/SublimePandoc
 import sublime, sublime_plugin
 import subprocess
@@ -24,7 +25,7 @@ import re
 class PandocConvertorCommand(sublime_plugin.TextCommand):
     """ Convert a Pandoc file to HTML or Docx fileformat
         Options allow to add a table of contents, a bibliography,
-          or to numerate the sections.
+          or to enumerate the sections.
     """
     def is_visible(self):
         return True

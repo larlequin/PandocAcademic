@@ -1,0 +1,15 @@
+[
+  { "keys": ["ctrl+alt+r"],
+    "command":"pandoc_convertor",
+    "args":{"openAfter":true,   "target":"html"},
+
+  { "keys": ["ctrl+alt+shift+d"],
+    "command":"pandoc_convertor",
+    "args":{"openAfter":false,   "target":"docx"},
+    "context":[{"key": "selector", "operator": "equal", "operand": "text.html.markdown" }]},
+
+  { "keys": ["ctrl+alt+shift+r"],
+    "command":"pandoc_convertor",
+    "args":{"openAfter":false,  "target":"html"},
+    "context":[{"key": "selector", "operator": "equal", "operand": "text.html.markdown" }]}
+]

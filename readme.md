@@ -12,9 +12,10 @@ Based on the [Pandoc Render pluging](https://github.com/jclement/SublimePandoc).
 
 ## Installation ##
 
-For the moment, the plugin is not available in the Sublime Text package manager.
+The easiest way to install the package is to use the [package control manager](http://wbond.net/sublime_packages/package_control).
+Go to Preferences > Package Control > Install Package and search for "Pandoc Academic".
 
-To install the plugin, download the latest version from Github and copy the folder into your Sublime Text 2 Packages folder.
+You can also install the plugin manually. Download the latest version from Github and copy the folder into your Sublime Text 2 Packages folder.
 (for instance in Linux: ~/.config/sublime-text-2/Packages).
 
 ~~~~~~~~~~~~~ {#mycode .sh}
@@ -34,7 +35,7 @@ You need to have a working installation of [Pandoc](http://johnmacfarlane.net/pa
 You can select the syntax for a markdown file (Pandoc) in the Menu: View > Syntax > Pandoc.
 This syntax should be selected to make the conversion menu available.
 
-The compatible color schemes are available in the Menu: Preference > Color Scheme > Pandoc > ColorScheme.
+The compatible color schemes are available in the Menu: Preferences > Color Scheme > Pandoc > ColorScheme.
 
 ### Conversion ###
 
@@ -46,6 +47,15 @@ You can convert a Pandoc file to:
 - DocX
 - PDF
 - Beamer
+
+You can also use key shortcuts to launch the conversions:
+
+- HTML with automatic web browser viewing >   *CTL+ALT+r*
+- HTML without automatic viewing          >   *CTL+ALT+h*
+- DocX                                    >   *CTL+ALT+d*
+- PDF                                     >   *CTL+ALT+p*
+- Beamer                                  >   *CTL+ALT+b*
+
 
 ### Snippets ###
 
