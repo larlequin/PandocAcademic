@@ -45,16 +45,17 @@ You can convert a Pandoc file to:
 - HTML with automatic web browser viewing
 - HTML without automatic viewing
 - DocX
-- PDF
-- Beamer
+- PDF (via LaTeX, see Pandoc documentation)
+- Beamer (via LaTeX, see Pandoc documentation)
 
 You can also use key shortcuts to launch the conversions:
 
 - HTML with automatic web browser viewing >   *CTL+ALT+r*
 - HTML without automatic viewing          >   *CTL+ALT+h*
 - DocX                                    >   *CTL+ALT+d*
-- PDF                                     >   *CTL+ALT+p*
 - Beamer                                  >   *CTL+ALT+b*
+- PDF                                     >   *CTL+SHIFT+ALT+p*
+
 
 
 ### Snippets ###
