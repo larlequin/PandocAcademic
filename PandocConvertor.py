@@ -32,11 +32,11 @@ class PandocConvertorCommand(sublime_plugin.TextCommand):
 
 
     def is_enabled(self):
-       return self.view.score_selector(0, "source.pandoc") > 0
+       return self.view.score_selector(0, "text.pandoc") > 0
 
 
     def getTemplatePath(self, filename):
-        path = os.path.join(sublime.packages_path(),'Pandoc','Styles',filename)
+        path = os.path.join(sublime.packages_path(),'Pandoc Academic','Styles',filename)
         if not os.path.isfile(path):
             raise Exception(filename + " file not found!")
 

@@ -2,7 +2,7 @@
 
 A [Sublime Text 2](http://www.sublimetext.com/2) plugin to handle [Pandoc](http://johnmacfarlane.net/pandoc/).
 The plugin proposes:
-
+sinta
 - a syntax highlighting tool associated with two dark color themes,
 - different snippets to quickly add Pandoc functions
 - a convertion tool to transform a Pandoc file to HTML, DocX, PDF and Beamer documents.
@@ -35,7 +35,7 @@ You need to have a working installation of [Pandoc](http://johnmacfarlane.net/pa
 You can select the syntax for a markdown file (Pandoc) in the Menu: View > Syntax > Pandoc.
 This syntax should be selected to make the conversion menu available.
 
-The compatible color schemes are available in the Menu: Preferences > Color Scheme > Pandoc > ColorScheme.
+The compatible color schemes are available in the Menu: Preferences > Color Scheme > Pandoc Academic > ColorScheme.
 
 ### Conversion ###
 

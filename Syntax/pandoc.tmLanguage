@@ -139,7 +139,7 @@
 		</dict>
 	</array>
 	<key>scopeName</key>
-	<string>source.pandoc</string>
+	<string>text.pandoc</string>
 	<key>uuid</key>
 	<string>50a29d70-cec4-4462-ad8a-8f44715cb391</string>
 </dict>
