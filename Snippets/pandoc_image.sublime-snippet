@@ -3,6 +3,6 @@
 ![Figure ${1:Nber}: ${2:Title}](${3:link_to_the_file}) ${4}
 ]]></content>
     <tabTrigger>img</tabTrigger>
-    <scope>source.pandoc</scope>
+    <scope>text.pandoc</scope>
     <description>Quickly add a picture</description>
 </snippet>

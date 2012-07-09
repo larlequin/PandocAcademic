@@ -3,6 +3,6 @@
 \$\eta^2\$~partial~\$=${1}\$ ${2}
 ]]></content>
     <tabTrigger>pow</tabTrigger>
-    <scope>source.pandoc</scope>
+    <scope>text.pandoc</scope>
     <description>Add eta-squared abbreviation based n LaTeX definition</description>
 </snippet>

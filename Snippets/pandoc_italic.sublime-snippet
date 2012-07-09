@@ -3,6 +3,6 @@
 *${1:words in italic}* ${2}
 ]]></content>
     <tabTrigger>it</tabTrigger>
-    <scope>source.pandoc</scope>
+    <scope>text.pandoc</scope>
     <description>Italic style</description>
 </snippet>

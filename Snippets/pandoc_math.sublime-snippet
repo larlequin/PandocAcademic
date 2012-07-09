@@ -3,6 +3,6 @@
 \$${1}\$ ${2}
 ]]></content>
     <tabTrigger>mat</tabTrigger>
-    <scope>source.pandoc</scope>
+    <scope>text.pandoc</scope>
     <description>Math based on LaTeX definition</description>
 </snippet>

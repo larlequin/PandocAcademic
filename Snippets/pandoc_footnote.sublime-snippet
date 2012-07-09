@@ -4,6 +4,6 @@
 [^${1:Nber}]: ${2:Note}. ${3}
 ]]></content>
     <tabTrigger>not</tabTrigger>
-    <scope>source.pandoc</scope>
+    <scope>text.pandoc</scope>
     <description>Quickly add a footnote</description>
 </snippet>

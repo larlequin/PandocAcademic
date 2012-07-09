@@ -3,6 +3,6 @@
 <!-- [[DOCSTYLE=${1:choose a template name}]] --> ${2}
 ]]></content>
     <tabTrigger>temp</tabTrigger>
-    <scope>source.pandoc</scope>
+    <scope>text.pandoc</scope>
     <description>Add the option to choose a template style</description>
 </snippet>
