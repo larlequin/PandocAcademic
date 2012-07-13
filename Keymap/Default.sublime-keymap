@@ -1,26 +1,21 @@
 [
-  { "keys": ["ctrl+alt+r"],
-    "command":"pandoc_convertor",
-    "args":{"openAfter":true,   "target":"html"},
-    "context":[{"key": "selector", "operator": "equal", "operand": "text.pandoc" }]},
-
   { "keys": ["ctrl+alt+h"],
     "command":"pandoc_convertor",
-    "args":{"openAfter":false,  "target":"html"},
+    "args":{"target":"html"},
     "context":[{"key": "selector", "operator": "equal", "operand": "text.pandoc" }]},
 
   { "keys": ["ctrl+alt+d"],
     "command":"pandoc_convertor",
-    "args":{"openAfter":false,   "target":"docx"},
+    "args":{"target":"docx"},
     "context":[{"key": "selector", "operator": "equal", "operand": "text.pandoc" }]},
 
   { "keys": ["ctrl+alt+b"],
     "command":"pandoc_convertor",
-    "args":{"openAfter":false,   "target":"beamer"},
+    "args":{"target":"beamer"},
     "context":[{"key": "selector", "operator": "equal", "operand": "text.pandoc" }]},
 
   { "keys": ["ctrl+shift+alt+p"],
     "command":"pandoc_convertor",
-    "args":{"openAfter":false,   "target":"pdf"},
+    "args":{"target":"pdf"},
     "context":[{"key": "selector", "operator": "equal", "operand": "text.pandoc" }]}
 ]

@@ -8,29 +8,24 @@
                 "children":
                 [
                     {
-                        "caption": "Convert Pandoc to HTML and View",
-                        "command": "pandoc_convertor",
-                        "args":{"openAfter":true, "target":"html"}
-                    },
-                    {
                         "caption": "Convert Pandoc to HTML",
                         "command": "pandoc_convertor",
-                        "args":{"openAfter":false, "target":"html"}
+                        "args":{"target":"html"}
                     },
                     {
                         "caption": "Convert Pandoc to DocX",
                         "command": "pandoc_convertor",
-                        "args":{"openAfter":false, "target":"docx"}
+                        "args":{"target":"docx"}
                     },
                     {
                         "caption": "Convert Pandoc to PDF",
                         "command": "pandoc_convertor",
-                        "args":{"openAfter":false,   "target":"pdf"}
+                        "args":{"target":"pdf"}
                     },
                     {
                         "caption": "Convert Pandoc to Beamer",
                         "command": "pandoc_convertor",
-                        "args":{"openAfter":false,   "target":"beamer"}
+                        "args":{"target":"beamer"}
                     }
                 ]
             }

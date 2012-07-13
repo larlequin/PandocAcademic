@@ -2,12 +2,17 @@
 
 A [Sublime Text 2](http://www.sublimetext.com/2) plugin to handle [Pandoc](http://johnmacfarlane.net/pandoc/).
 The plugin proposes:
-sinta
+
 - a syntax highlighting tool associated with two dark color themes,
 - different snippets to quickly add Pandoc functions
-- a convertion tool to transform a Pandoc file to HTML, DocX, PDF and Beamer documents.
+- a conversion tool to transform a Pandoc file to HTML, DocX, PDF and Beamer documents.
 
 Based on the [Pandoc Render pluging](https://github.com/jclement/SublimePandoc).
+
+
+## Version ##
+
+Plugin version: v1.1 -- Automatically launch the file-associated program after the compilation.
 
 
 ## Installation ##
@@ -25,7 +30,7 @@ $ git clone git://github.com/larlequin/Pandoc-Academic-Plugin.git
 
 ## Dependencies ##
 
-You need to have a working installation of [Pandoc](http://johnmacfarlane.net/pandoc/).
+You need to have a working installation of [Pandoc](http://johnmacfarlane.net/pandoc/), version 1.9.4.2 or higher.
 
 
 ## Available Commands ##
@@ -42,21 +47,17 @@ The compatible color schemes are available in the Menu: Preferences > Color Sche
 Conversions are available in the Menu: Tools > Pandoc Convert (only if pandoc is defined as syntax).
 You can convert a Pandoc file to:
 
-- HTML with automatic web browser viewing
-- HTML without automatic viewing
+- HTML
 - DocX
 - PDF (via LaTeX, see Pandoc documentation)
 - Beamer (via LaTeX, see Pandoc documentation)
 
 You can also use key shortcuts to launch the conversions:
 
-- HTML with automatic web browser viewing >   *CTL+ALT+r*
-- HTML without automatic viewing          >   *CTL+ALT+h*
-- DocX                                    >   *CTL+ALT+d*
-- Beamer                                  >   *CTL+ALT+b*
-- PDF                                     >   *CTL+SHIFT+ALT+p*
-
-
+- HTML    >   *CTL+ALT+h*
+- DocX    >   *CTL+ALT+d*
+- Beamer  >   *CTL+ALT+b*
+- PDF     >   *CTL+SHIFT+ALT+p*
 
 ### Snippets ###
 
@@ -88,6 +89,8 @@ You can also use key shortcuts to launch the conversions:
 - toc + tabulation = add the \[\[TOC]] option to the current file
 - temp + tabulation= add the \[\[DOCSYTLE=name]] option to the current file
 - head + tabulation= add the \[\[HEADER]] option to the current file
+- rend + tabulation= add the \[\[NORENDER]] option to the current
+
 
 ## Pandoc Options ##
 
@@ -96,9 +99,10 @@ The following hints can be added in your document to flip on additional features
 - **\<!-- \[\[TOC]] -->**: Add a Table of Contents to the top of your output document.
 - **\<!-- \[\[NUM]] -->**: Turn on numbering of sections.
 - **\<!-- \[\[BIB]] -->**: Add the bibliography option to handle citation and reference (@citationkey). The bibliography file should have the same name than the pandoc file.
-- **\<!-- \[\[BIBSTYLE=name]] -->**: Specify a csl bibliography style
-- **\<!-- \[\[DOCSTYLE=name]] -->**: Specify a template for the convertion to HTML or DOCX or theme in Beamer
-- **\<!-- \[\[HEADER]] -->**: Add the option to add a custom header for the convertion to Beamer (the file should be in the same directory than the pandoc file)
+- **\<!-- \[\[BIBSTYLE=name]] -->**: Specify a csl bibliography style.
+- **\<!-- \[\[DOCSTYLE=name]] -->**: Specify a template for the convertion to HTML or DOCX or theme in Beamer.
+- **\<!-- \[\[HEADER]] -->**: Add the option to add a custom header for the convertion to Beamer (the file should be in the same directory than the pandoc file).
+- **\<!-- \[\[NORENDER]] -->**: Option to not automatically start the associated program.
 
 
 *Note:* these hints are processed by the plugin and are NOT part of Pandoc itself.
@@ -108,3 +112,26 @@ The following hints can be added in your document to flip on additional features
 
 The Templates could be found in the "Styles" folder in the Pandoc plugin folder (in the package folder of Sublime Text).
 The version comes with a standard html and docx template (from the Pandoc Render plugin) and with an APA guideline DOCX template.
+
+
+## Path option ##
+
+If pandoc is not in the path of Sublime Text, you can specify a custom path in your file with the following command: **[[PATH=path_name]]**.
+
+If you want to change the path used by the plugin, you can edit the plugin file "PandocConvertor.py".
+Change the line 134:
+
+    cmd = ['pandoc']
+
+with:
+
+    cmd = ['your_path']
+
+
+## Disclosure ##
+
+I am an academic guy, not a software programmer or a computer guru. This plugin is therefore missing some features and could be improved. I try to do my best, but I need your feedbacks to help me to do so: [email:](mailto:larlequin@gmail.com). In the same vein, if you're willing to help or to be involved in this project, your participation is more than welcome.
+
+Thanks!
+
+Guillaume

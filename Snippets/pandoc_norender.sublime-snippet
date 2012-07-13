@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[
+<!-- [[NORENDER]] --> ${1}
+]]></content>
+    <tabTrigger>rend</tabTrigger>
+    <scope>text.pandoc</scope>
+    <description>Disable the automatic launch of the file-associated program</description>
+</snippet>
