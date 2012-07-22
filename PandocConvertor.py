@@ -12,6 +12,8 @@
 # G.T. Vallet -- Lyon2 University
 # 2012/06/24  -- GPLv3
 # 2012/07/10  -- v02 -- Always launch associated application and better syntax
+# 2012/07/20  -- v02.5 -- Fix the bug when pictures are included, convert PDF
+#                           doesn't run. Need to change the path of the figures.
 #
 # Inspired and cannibalized from Pandoc Renderer plugin
 #  https://github.com/jclement/SublimePandoc
@@ -19,6 +21,7 @@
 import sublime, sublime_plugin
 import subprocess
 import webbrowser
+import tempfile
 import time
 import sys
 import os
@@ -80,7 +83,7 @@ class PandocConvertorCommand(sublime_plugin.TextCommand):
         return cmd
 
 
-    def opt(self, cmd, target):
+    def opt(self, cmd, target, dir_path):
         """ A function to search for options embedded in the Pandoc file
               adding table of contents, bibliography and/or section number
         """
@@ -117,7 +120,12 @@ class PandocConvertorCommand(sublime_plugin.TextCommand):
         # Check for templates and styles options
         cmd = self.template(cmd, target, contents)
 
-        return cmd, openAfter
+        # Adapt the path of the figures included (if any)
+        re_img = "!\[.*\]\((.+)\)"  # Regex to find the figures
+        for match in re.finditer(re_img, contents):
+            contents = contents.replace(match.group(1), os.path.join(dir_path, match.group(1)))
+
+        return cmd, openAfter, contents
 
 
     def buildCommand(self, target):
@@ -127,6 +135,7 @@ class PandocConvertorCommand(sublime_plugin.TextCommand):
         # Extract the filename
         file_name   = self.view.file_name().encode(sys.getfilesystemencoding())
         filepath = os.path.splitext(file_name)[0]
+        dir_path = os.path.split(file_name)[0]
         if not self.view.file_name(): raise Exception("Buffer must be saved!")
         if target == 'beamer':
             output_file = filepath + ".pdf"
@@ -134,17 +143,23 @@ class PandocConvertorCommand(sublime_plugin.TextCommand):
             output_file = filepath + "." + target
 
         # Adding separated blocks of text to run the command in sublime text
-        cmd = ['pandoc']
+        cmd = ['pandoc', '--smart', '--standalone']
+        # Check for options in the Pandoc file
+        cmd, openAfter, contents = self.opt(cmd, target, dir_path)
+
+        # Create a temporary file to handle the contents
+        tmp_md = tempfile.NamedTemporaryFile(delete=False, suffix=".md")
+        tmp_md.write(contents)
+        tmp_md.close()
+
+        # Complete the command function
         if target != 'pdf':
             cmd.append('-t')
             cmd.append(target)
-        cmd.append('--standalone')
-        cmd.append('--smart')
-        cmd.append(file_name)
+        cmd.append(tmp_md.name)
         cmd.append("-o")
         cmd.append(output_file)
-        # Check for options in the Pandoc file
-        cmd, openAfter = self.opt(cmd, target)
+
 
         return cmd, output_file, openAfter
 
@@ -167,8 +182,6 @@ class PandocConvertorCommand(sublime_plugin.TextCommand):
         except Exception as e:
             sublime.error_message("Unable to execute Pandoc.\
                                     \n\nDetails: {0}".format(e))
-
-            print cmd
 
         # Update the status
         self.status(output_filename)

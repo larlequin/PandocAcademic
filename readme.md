@@ -7,7 +7,7 @@ The plugin proposes:
 - different snippets to quickly add Pandoc functions
 - a conversion tool to transform a Pandoc file to HTML, DocX, PDF and Beamer documents.
 
-Based on the [Pandoc Render pluging](https://github.com/jclement/SublimePandoc).
+Based on the [Pandoc Render plugin](https://github.com/jclement/SublimePandoc).
 
 
 ## Version ##

@@ -57,20 +57,24 @@
 			<string>markup.heading.2.markdown</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>Bold</string>
-			<key>match</key>
-			<string>(\*\*|__)(.+)(\*\*|__)</string>
-			<key>name</key>
-			<string>punctuation.definition.bold.markdown</string>
-		</dict>
-		<dict>
+			<key>begin</key>
+			<string>\*</string>
 			<key>comment</key>
 			<string>Italic</string>
-			<key>match</key>
-			<string>(\*|_)(\w+\s*\w+.)(\*|_)</string>
+			<key>end</key>
+			<string>\*</string>
 			<key>name</key>
 			<string>punctuation.definition.italic.markdown</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>\*\*</string>
+			<key>comment</key>
+			<string>Bold</string>
+			<key>end</key>
+			<string>\*\*</string>
+			<key>name</key>
+			<string>punctuation.definition.bold.markdown</string>
 		</dict>
 		<dict>
 			<key>comment</key>
