@@ -71,7 +71,7 @@
             <key>name</key>
             <string>User-defined constant</string>
             <key>scope</key>
-            <string>constant.character, constant.other</string>
+            <string>constant.character, constant.other, balise.pandoc</string>
             <key>settings</key>
             <dict>
                 <key>foreground</key>
@@ -451,7 +451,7 @@
             <key>name</key>
             <string>Markdown: Bold</string>
             <key>scope</key>
-            <string>markup.bold.markdown</string>
+            <string>markup.bold.markdown, punctuation.definition.bold.markdown</string>
             <key>settings</key>
             <dict>
                 <key>fontStyle</key>
@@ -464,7 +464,7 @@
             <key>name</key>
             <string>Markdown: Italic</string>
             <key>scope</key>
-            <string>markup.italic.markdown</string>
+            <string>markup.italic.markdown, punctuation.definition.italic.markdown</string>
             <key>settings</key>
             <dict>
                 <key>fontStyle</key>
@@ -510,7 +510,7 @@
             <key>name</key>
             <string>Markdown: Block and Inline Block</string>
             <key>scope</key>
-            <string>markup.raw.block.markdown, markup.raw.inline.markdown</string>
+            <string>code.pandoc, markup.raw.block.markdown, markup.raw.inline.markdown</string>
             <key>settings</key>
             <dict>
                 <key>foreground</key>
@@ -521,7 +521,7 @@
             <key>name</key>
             <string>Markdown: Quote Block and Punctuation</string>
             <key>scope</key>
-            <string>markup.quote.markdown, punctuation.definition.blockquote.markdown</string>
+            <string>markup.quote.markdown, punctuation.definition.blockquote.markdown, quote.pandoc</string>
             <key>settings</key>
             <dict>
                 <key>foreground</key>

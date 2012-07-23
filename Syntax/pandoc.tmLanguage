@@ -57,22 +57,18 @@
 			<string>markup.heading.2.markdown</string>
 		</dict>
 		<dict>
-			<key>begin</key>
-			<string>\*</string>
 			<key>comment</key>
 			<string>Italic</string>
-			<key>end</key>
-			<string>\*</string>
+			<key>match</key>
+			<string>\*(.)+\*</string>
 			<key>name</key>
 			<string>punctuation.definition.italic.markdown</string>
 		</dict>
 		<dict>
-			<key>begin</key>
-			<string>\*\*</string>
 			<key>comment</key>
 			<string>Bold</string>
-			<key>end</key>
-			<string>\*\*</string>
+			<key>match</key>
+			<string>\*\*(.)+\*\*</string>
 			<key>name</key>
 			<string>punctuation.definition.bold.markdown</string>
 		</dict>
@@ -140,6 +136,47 @@
 			<string>^\[\^(.*)\]:</string>
 			<key>name</key>
 			<string>note.pandoc</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Blockquote text</string>
+			<key>match</key>
+			<string>^\s+(.+)</string>
+			<key>name</key>
+			<string>code.pandoc</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Blockquote text</string>
+			<key>match</key>
+			<string>^&gt;\s*(.*)</string>
+			<key>name</key>
+			<string>quote.pandoc</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>&lt;</string>
+			<key>end</key>
+			<string>&gt;</string>
+			<key>name</key>
+			<string>balise.pandoc</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\w+</string>
+					<key>name</key>
+					<string>balise.pandoc</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Balise text</string>
+			<key>match</key>
+			<string>".+"</string>
+			<key>name</key>
+			<string>string</string>
 		</dict>
 	</array>
 	<key>scopeName</key>

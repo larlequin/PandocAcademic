@@ -13,7 +13,7 @@
 # 2012/06/24  -- GPLv3
 # 2012/07/10  -- v02 -- Always launch associated application and better syntax
 # 2012/07/20  -- v02.5 -- Fix the bug when pictures are included, convert PDF
-#                           doesn't run. Need to change the path of the figures.
+#                           doesn't run. Need to change the path of the figures
 #
 # Inspired and cannibalized from Pandoc Renderer plugin
 #  https://github.com/jclement/SublimePandoc
@@ -182,9 +182,8 @@ class PandocConvertorCommand(sublime_plugin.TextCommand):
         except Exception as e:
             sublime.error_message("Unable to execute Pandoc.\
                                     \n\nDetails: {0}".format(e))
-
-        # Update the status
         self.status(output_filename)
+
         # View the converted file in the browser if openAfter true
         if openAfter:
             webbrowser.open(output_filename)

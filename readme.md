@@ -119,7 +119,7 @@ The version comes with a standard html and docx template (from the Pandoc Render
 If pandoc is not in the path of Sublime Text, you can specify a custom path in your file with the following command: **[[PATH=path_name]]**.
 
 If you want to change the path used by the plugin, you can edit the plugin file "PandocConvertor.py".
-Change the line 134:
+Change the line 146:
 
     cmd = ['pandoc']
 
