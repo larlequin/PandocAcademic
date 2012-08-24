@@ -11,9 +11,10 @@
 #
 # G.T. Vallet -- Lyon2 University
 # 2012/06/24  -- GPLv3
-# 2012/07/10  -- v02 -- Always launch associated application and better syntax
-# 2012/07/20  -- v02.5 -- Fix the bug when pictures are included, convert PDF
+# 2012/07/10  -- v.02 -- Always launch associated application and better syntax
+# 2012/07/20  -- v.02.5 -- Fix the bug when pictures are included, convert PDF
 #                           doesn't run. Need to change the path of the figures
+# 2012/08/24  --  v.2.6 -- Search for paths before looking for default folders
 #
 # Inspired and cannibalized from Pandoc Renderer plugin
 #  https://github.com/jclement/SublimePandoc
@@ -59,23 +60,44 @@ class PandocConvertorCommand(sublime_plugin.TextCommand):
         return self.view.substr(region).encode('utf8')
 
 
+    def testPath(self, style, target):
+        """ Test if the provided style exists
+        """
+        if target != "beamer":
+            default_path = self.getTemplatePath(style+"."+ target)
+        else:
+            default_path = style
+        if os.path.exists(style):
+            style_path = style
+        elif os.path.exists(default_path):
+                style_path = default_path
+        else:
+            sublime.error_message("Unable to find the style {0}.\
+                        \n\nPlease check your path or name.".format(style))
+            style_path = None
+
+        return style_path
+
+
     def template(self, cmd, target, contents):
         """ A function to select the appropriate template
         """
-        regex_docstyle = re.compile(r'\[\[DOCSTYLE=(\w+)\]\]')
-        if regex_docstyle.search(contents) != None:
+        regex_docstyle = re.compile(r'\[\[DOCSTYLE=(\S+)\]\]')
+        if regex_docstyle.search(contents):
             style = regex_docstyle.search(contents).groups()[0]
-            if target == 'html':
-                cmd.append('--template='+self.getTemplatePath(style+".html"))
-            elif target == 'docx':
-                cmd.append('--reference-docx='\
-                       +self.getTemplatePath(style+".docx"))
-            elif target == 'beamer':
-                cmd.append('-V')
-                cmd.append('theme:'+style)
+            style_path = self.testPath(style, target)
+            if style_path:
+                if target == 'html':
+                    cmd.append('--template=' + style_path)
+                elif target == 'docx':
+                    cmd.append('--reference-docx='\
+                       +self.getTemplatePath(style_path))
+                elif target == 'beamer':
+                    cmd.append('-V')
+                    cmd.append('theme:' + style)
         else:
             if target == 'html':
-              cmd.append('--template='+self.getTemplatePath("template.html"))
+              cmd.append('--template=' + self.getTemplatePath("template.html"))
             elif target == 'docx':
                 cmd.append('--reference-docx='\
                         +self.getTemplatePath("reference.docx"))

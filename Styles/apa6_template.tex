@@ -1,0 +1,41 @@
+\documentclass[man, biblatex, a4paper,12pt]{apa6} % option man (MS) doc ou jou (journal)
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{graphicx}
+
+\usepackage[pdfauthor={$author$},
+    pdftitle={$title$},
+    bookmarks=false]{hyperref}
+
+\usepackage[american]{babel}
+\usepackage{csquotes}
+\usepackage[style=apa]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+
+\bibliography{SPI}
+
+\author{$author$}
+\affiliation{$date$}
+\title{$title$}
+
+
+\begin{document}
+
+\maketitle
+
+$body$
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%     BIBLIOGRAPHY     %
+%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\printbibliography
+
+
+\end{document}
+
