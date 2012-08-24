@@ -62,9 +62,10 @@ class PandocConvertorCommand(sublime_plugin.TextCommand):
 
     def testPath(self, style, target):
         """ Test if the provided style exists
+              if not, try to search in the package Styles folder
         """
         if target != "beamer":
-            default_path = self.getTemplatePath(style+"."+ target)
+            default_path = self.getTemplatePath(style + "." + target)
         else:
             default_path = style
         if os.path.exists(style):
@@ -114,6 +115,7 @@ class PandocConvertorCommand(sublime_plugin.TextCommand):
 
         # Check if a custom path is provided
         regex_path = re.compile(r'\[\[PATH=(.+)\]\]')
+        regex_class = re.compile(r'\[\[CLASS=(\S+)\]\]')
         if regex_path.search(contents) != None:
             pandoc_path = regex_path.search(contents).groups()[0]
             cmd[0] = pandoc_path
@@ -122,6 +124,10 @@ class PandocConvertorCommand(sublime_plugin.TextCommand):
             cmd.append("--toc")
         if '[[NUM]]' in contents:
             cmd.append("-N")
+        if regex_class.search(contents):
+            tex_class = regex_class.search(contents).groups()[0]
+            cmd.append('-V')
+            cmd.append('documentclass:' + tex_class)
         if '[[BIB]]' in contents:
             cmd.append("--bibliography")
             cmd.append(os.path.splitext(self.view.file_name())[0]+".bib")
