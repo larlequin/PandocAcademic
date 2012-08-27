@@ -4,28 +4,44 @@
         "children":
         [
             {
-                "caption": "Pandoc Convert",
+                "caption": "Pandoc Academic",
                 "children":
                 [
                     {
-                        "caption": "Convert Pandoc to HTML",
-                        "command": "pandoc_convertor",
-                        "args":{"target":"html"}
+                        "caption": "Pandoc Convert",
+                        "children":
+                        [
+                            {
+                                "caption": "Convert Pandoc to HTML",
+                                "command": "pandoc_convertor",
+                                "args":{"target":"html"}
+                            },
+                            {
+                                "caption": "Convert Pandoc to DocX",
+                                "command": "pandoc_convertor",
+                                "args":{"target":"docx"}
+                            },
+                            {
+                                "caption": "Convert Pandoc to PDF",
+                                "command": "pandoc_convertor",
+                                "args":{"target":"pdf"}
+                            },
+                            {
+                                "caption": "Convert Pandoc to Beamer",
+                                "command": "pandoc_convertor",
+                                "args":{"target":"beamer"}
+                            }
+                        ]
                     },
                     {
-                        "caption": "Convert Pandoc to DocX",
-                        "command": "pandoc_convertor",
-                        "args":{"target":"docx"}
-                    },
-                    {
-                        "caption": "Convert Pandoc to PDF",
-                        "command": "pandoc_convertor",
-                        "args":{"target":"pdf"}
-                    },
-                    {
-                        "caption": "Convert Pandoc to Beamer",
-                        "command": "pandoc_convertor",
-                        "args":{"target":"beamer"}
+                        "caption": "Pandoc Table",
+                        "children":
+                        [
+                            {
+                                "caption": "Pandoc Table",
+                                "command": "pandoc_table"
+                            }
+                        ]
                     }
                 ]
             }

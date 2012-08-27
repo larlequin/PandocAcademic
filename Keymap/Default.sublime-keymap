@@ -17,5 +17,9 @@
   { "keys": ["ctrl+alt+c"],
     "command":"pandoc_convertor",
     "args":{"target":"pdf"},
+    "context":[{"key": "selector", "operator": "equal", "operand": "text.pandoc" }]},
+
+  { "keys": ["ctrl+alt+shift+t"],
+    "command":"pandoc_table",
     "context":[{"key": "selector", "operator": "equal", "operand": "text.pandoc" }]}
 ]
