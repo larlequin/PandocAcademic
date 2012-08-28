@@ -195,7 +195,7 @@ with:
 
 I am an academic guy, not a software programmer or a computer guru.
 This plugin is therefore missing some features and could be improved.
-I try to do my best, but I need your feedbacks to help me to do so: [email:](mailto:larlequin@gmail.com).
+I try to do my best, but I need your feedbacks to help me to do so: [larlequin@gmail.com](mailto:larlequin@gmail.com).
 In the same vein, if you're willing to help or to be involved in this project, your participation is more than welcome.
 
 Thanks!
