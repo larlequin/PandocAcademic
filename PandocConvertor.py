@@ -19,7 +19,8 @@
 # Inspired and cannibalized from Pandoc Renderer plugin
 #  https://github.com/jclement/SublimePandoc
 
-import sublime, sublime_plugin
+import sublime
+import sublime_plugin
 import subprocess
 import webbrowser
 import tempfile
@@ -27,6 +28,7 @@ import time
 import sys
 import os
 import re
+
 
 class PandocConvertorCommand(sublime_plugin.TextCommand):
     """ Convert a Pandoc file to HTML or Docx fileformat
@@ -36,21 +38,19 @@ class PandocConvertorCommand(sublime_plugin.TextCommand):
     def is_visible(self):
         return True
 
-
     def is_enabled(self):
         if self.view.score_selector(0, "text.pandoc") > 0 or \
             self.view.score_selector(0, "text.html.markdown") > 0 or \
             self.view.score_selector(0, "text.html.markdown.multimarkdown") > 0:
             return True
 
-
     def getTemplatePath(self, filename):
-        path = os.path.join(sublime.packages_path(),'Pandoc Academic','Styles',filename)
+        path = os.path.join(sublime.packages_path(), 'Pandoc Academic',
+                                'Styles', filename)
         if not os.path.isfile(path):
             raise Exception(filename + " file not found!")
 
         return path
-
 
     def grabContent(self):
         """ A simple function to grab the content of the current buffer
@@ -58,7 +58,6 @@ class PandocConvertorCommand(sublime_plugin.TextCommand):
         region = sublime.Region(0, self.view.size())
 
         return self.view.substr(region).encode('utf8')
-
 
     def testPath(self, style, target):
         """ Test if the provided style exists
@@ -79,7 +78,6 @@ class PandocConvertorCommand(sublime_plugin.TextCommand):
 
         return style_path
 
-
     def template(self, cmd, target, contents):
         """ A function to select the appropriate template
         """
@@ -92,7 +90,7 @@ class PandocConvertorCommand(sublime_plugin.TextCommand):
                     cmd.append('--template=' + style_path)
                 elif target == 'docx':
                     cmd.append('--reference-docx='\
-                       +self.getTemplatePath(style_path))
+                       + self.getTemplatePath(style_path))
                 elif target == 'beamer':
                     cmd.append('-V')
                     cmd.append('theme:' + style)
@@ -101,10 +99,9 @@ class PandocConvertorCommand(sublime_plugin.TextCommand):
               cmd.append('--template=' + self.getTemplatePath("template.html"))
             elif target == 'docx':
                 cmd.append('--reference-docx='\
-                        +self.getTemplatePath("reference.docx"))
+                        + self.getTemplatePath("reference.docx"))
 
         return cmd
-
 
     def opt(self, cmd, target, dir_path):
         """ A function to search for options embedded in the Pandoc file
@@ -130,20 +127,20 @@ class PandocConvertorCommand(sublime_plugin.TextCommand):
             cmd.append('documentclass:' + tex_class)
         if '[[BIB]]' in contents:
             cmd.append("--bibliography")
-            cmd.append(os.path.splitext(self.view.file_name())[0]+".bib")
+            cmd.append(os.path.splitext(self.view.file_name())[0] + ".bib")
             # Style options
             regex_bibstyle = re.compile(r'\[\[BIBSTYLE=(\w+)\]\]')
             if regex_bibstyle.search(contents) != None:
                 bibstyle = regex_bibstyle.search(contents).groups()[0]
                 cmd.append("--csl")
-                cmd.append(self.getTemplatePath(bibstyle+".csl"))
+                cmd.append(self.getTemplatePath(bibstyle + ".csl"))
         if '[[HEADER]]' in contents:
-            cmd.append("--include-in-header="+os.path.split(self.view.file_name())[0]+"/header")
+            cmd.append("--include-in-header="+os.path.split(self.view.file_name())[0] + "/header")
         if '[[NORENDER]]' in contents:
             openAfter = False
         else:
             # By default, launch the associated program of the file
-            openAfter=True
+            openAfter = True
 
         # Check for templates and styles options
         cmd = self.template(cmd, target, contents)
@@ -155,13 +152,12 @@ class PandocConvertorCommand(sublime_plugin.TextCommand):
 
         return cmd, openAfter, contents
 
-
     def buildCommand(self, target):
         """ A function to build the final Pandoc command to run
             Take the target and return the command and the output file
         """
         # Extract the filename
-        file_name   = self.view.file_name().encode(sys.getfilesystemencoding())
+        file_name = self.view.file_name().encode(sys.getfilesystemencoding())
         filepath = os.path.splitext(file_name)[0]
         dir_path = os.path.split(file_name)[0]
         if not self.view.file_name(): raise Exception("Buffer must be saved!")
@@ -188,18 +184,15 @@ class PandocConvertorCommand(sublime_plugin.TextCommand):
         cmd.append("-o")
         cmd.append(output_file)
 
-
         return cmd, output_file, openAfter
-
 
     def status(self, filename):
         """ Update the status monitor of sublime text
         """
-        self.view.set_status('pandoc','File converted to ' + filename)
+        self.view.set_status('pandoc', 'File converted to ' + filename)
         print "File converted to:", filename
         time.sleep(2)
         self.view.erase_status('pandoc')
-
 
     def run(self, edit, target="html"):
         # Call the build command function to construct the final pandoc command

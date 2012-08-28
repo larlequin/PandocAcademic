@@ -135,20 +135,20 @@ To create a new table, just type your data with at least 2 spaces to separate th
 
 Example:
 
-Conditions  Col1  Col2  Col3
-Line 1  data1  data2  data3
-Line 2  data4  data5  data6
+    Conditions  Col1  Col2  Col3
+    Line 1  data1  data2  data3
+    Line 2  data4  data5  data6
 
 Then select the data with your mouse and go to Tools > Pandoc Academic > Pandoc Table or use the shortcut CTL+SHIFT+ALT+t.
 You should see:
 
-+------------+-------+-------+-------+
-| Conditions | Col1  | Col2  | Col3  |
-+============+=======+=======+=======+
-| Line 1     | data1 | data2 | data3 |
-+------------+-------+-------+-------+
-| Line 2     | data4 | data5 | data6 |
-+------------+-------+-------+-------+
+    +------------+-------+-------+-------+
+    | Conditions | Col1  | Col2  | Col3  |
+    +============+=======+=======+=======+
+    | Line 1     | data1 | data2 | data3 |
+    +------------+-------+-------+-------+
+    | Line 2     | data4 | data5 | data6 |
+    +------------+-------+-------+-------+
 
 The module will always consider the first line as the title line.
 If one or more cells should be empty just type NA in.
@@ -158,23 +158,23 @@ If one or more cells should be empty just type NA in.
 The module allows to extend an existing table.
 Just add the new data or modify the current one, and use the module:
 
-+------------+-------+-------+-------+
-| Conditions | Col1  | Col2  | Col3  | Col4
-+============+=======+=======+=======+
-| Line 1     | rename | data2 | data3 | data7
-+------------+-------+-------+-------+
-| Line 2     | data4 | long long data | data6 | data8
-+------------+-------+-------+-------+
+    +------------+-------+-------+-------+
+    | Conditions | Col1  | Col2  | Col3  | Col4
+    +============+=======+=======+=======+
+    | Line 1     | rename | data2 | data3 | data7
+    +------------+-------+-------+-------+
+    | Line 2     | data4 | long long data | data6 | data8
+    +------------+-------+-------+-------+
 
 will become:
 
-+------------+--------+----------------+-------+-------+
-| Conditions | Col1   | Col2           | Col3  | Col4  |
-+============+========+================+=======+=======+
-| Line 1     | rename | data2          | data3 | data7 |
-+------------+--------+----------------+-------+-------+
-| Line 2     | data4  | long long data | data6 | data8 |
-+------------+--------+----------------+-------+-------+
+    +------------+--------+----------------+-------+-------+
+    | Conditions | Col1   | Col2           | Col3  | Col4  |
+    +============+========+================+=======+=======+
+    | Line 1     | rename | data2          | data3 | data7 |
+    +------------+--------+----------------+-------+-------+
+    | Line 2     | data4  | long long data | data6 | data8 |
+    +------------+--------+----------------+-------+-------+
 
 
 ## Path option ##
