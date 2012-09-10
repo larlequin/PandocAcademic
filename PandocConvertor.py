@@ -47,16 +47,16 @@ class PandocConvertorCommand(sublime_plugin.TextCommand):
     def getTemplatePath(self, filename):
         path = os.path.join(sublime.packages_path(), 'Pandoc Academic',
                                 'Styles', filename)
-        if not os.path.isfile(path):
+        if os.path.isfile(path):
+            print "Template file found in the default template folder"
+        else:
             raise Exception(filename + " file not found!")
-
         return path
 
     def grabContent(self):
         """ A simple function to grab the content of the current buffer
         """
         region = sublime.Region(0, self.view.size())
-
         return self.view.substr(region).encode('utf8')
 
     def testPath(self, style, target):
@@ -75,7 +75,6 @@ class PandocConvertorCommand(sublime_plugin.TextCommand):
             sublime.error_message("Unable to find the style {0}.\
                         \n\nPlease check your path or name.".format(style))
             style_path = None
-
         return style_path
 
     def template(self, cmd, target, contents):
@@ -100,7 +99,6 @@ class PandocConvertorCommand(sublime_plugin.TextCommand):
             elif target == 'docx':
                 cmd.append('--reference-docx='\
                         + self.getTemplatePath("reference.docx"))
-
         return cmd
 
     def opt(self, cmd, target, dir_path):
@@ -189,8 +187,12 @@ class PandocConvertorCommand(sublime_plugin.TextCommand):
     def status(self, filename):
         """ Update the status monitor of sublime text
         """
-        self.view.set_status('pandoc', 'File converted to ' + filename)
-        print "File converted to:", filename
+        if os.path.exists(filename):
+            self.view.set_status('pandoc', 'File converted to ' + filename)
+            print "File converted to:", filename
+        else:
+            self.view.set_status('pandoc', 'Error in the conversion!')
+            print "Unable to convert the file! Please check your options"
         time.sleep(2)
         self.view.erase_status('pandoc')
 
@@ -205,6 +207,13 @@ class PandocConvertorCommand(sublime_plugin.TextCommand):
                                     \n\nDetails: {0}".format(e))
         self.status(output_filename)
 
-        # View the converted file in the browser if openAfter true
+        # View the converted file in the associated program
         if openAfter:
-            webbrowser.open(output_filename)
+            if target == "html":
+                webbrowser.open_new_tab(output_filename)
+            elif target != "html" and sys.platform == "win32":
+                os.startfile(output_filename)
+            elif target != "html" and sys.platform == "mac":
+                subprocess.call(["open", output_filename])
+            else:
+                subprocess.call(["xdg-open", output_filename])
