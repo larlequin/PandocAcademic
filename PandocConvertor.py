@@ -67,14 +67,15 @@ class PandocConvertorCommand(sublime_plugin.TextCommand):
             default_path = self.getTemplatePath(style + "." + target)
         else:
             default_path = style
-        if os.path.exists(style):
-            style_path = style
-        elif os.path.exists(default_path):
+            if os.path.exists(style):
+                style_path = style
+            elif os.path.exists(default_path):
                 style_path = default_path
-        else:
-            sublime.error_message("Unable to find the style {0}.\
-                        \n\nPlease check your path or name.".format(style))
-            style_path = None
+            else:
+                if target != "beamer":
+                    sublime.error_message("Unable to find the style {0}.\
+                            \n\nPlease check your path or name.".format(style))
+                style_path = None
         return style_path
 
     def template(self, cmd, target, contents):
@@ -90,9 +91,9 @@ class PandocConvertorCommand(sublime_plugin.TextCommand):
                 elif target == 'docx':
                     cmd.append('--reference-docx='\
                        + self.getTemplatePath(style_path))
-                elif target == 'beamer':
-                    cmd.append('-V')
-                    cmd.append('theme:' + style)
+            if target == 'beamer':
+                cmd.append('-V')
+                cmd.append('theme:' + style)
         else:
             if target == 'html':
               cmd.append('--template=' + self.getTemplatePath("template.html"))
