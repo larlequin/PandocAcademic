@@ -65,6 +65,7 @@ class PandocConvertorCommand(sublime_plugin.TextCommand):
         """
         if target != "beamer":
             default_path = self.getTemplatePath(style + "." + target)
+            return default_path
         else:
             default_path = style
             if os.path.exists(style):
@@ -76,7 +77,7 @@ class PandocConvertorCommand(sublime_plugin.TextCommand):
                     sublime.error_message("Unable to find the style {0}.\
                             \n\nPlease check your path or name.".format(style))
                 style_path = None
-        return style_path
+            return style_path
 
     def template(self, cmd, target, contents):
         """ A function to select the appropriate template
