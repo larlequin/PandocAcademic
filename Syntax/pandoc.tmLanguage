@@ -141,7 +141,7 @@
 			<key>comment</key>
 			<string>Blockquote text</string>
 			<key>match</key>
-			<string>^\s+(.+)</string>
+			<string>^\s+\s+\s+\s+(.+)</string>
 			<key>name</key>
 			<string>code.pandoc</string>
 		</dict>
