@@ -29,6 +29,8 @@ import sys
 import os
 import re
 
+reload(sys)
+sys.setdefaultencoding("utf-8")
 
 class PandocConvertorCommand(sublime_plugin.TextCommand):
     """ Convert a Pandoc file to HTML or Docx fileformat
@@ -57,13 +59,13 @@ class PandocConvertorCommand(sublime_plugin.TextCommand):
         """ A simple function to grab the content of the current buffer
         """
         region = sublime.Region(0, self.view.size())
-        return self.view.substr(region).encode('utf8')
+        return self.view.substr(region)
 
     def testPath(self, style, target):
         """ Test if the provided style exists
               if not, try to search in the package Styles folder
         """
-        if target != "beamer":
+        if target != "beamer" and target != "pdf":
             default_path = self.getTemplatePath(style + "." + target)
             return default_path
         else:
@@ -87,7 +89,7 @@ class PandocConvertorCommand(sublime_plugin.TextCommand):
             style = regex_docstyle.search(contents).groups()[0]
             style_path = self.testPath(style, target)
             if style_path:
-                if target == 'html':
+                if target == 'html' or target == 'pdf':
                     cmd.append('--template=' + style_path)
                 elif target == 'docx':
                     cmd.append('--reference-docx='\
@@ -141,15 +143,12 @@ class PandocConvertorCommand(sublime_plugin.TextCommand):
         else:
             # By default, launch the associated program of the file
             openAfter = True
-
         # Check for templates and styles options
         cmd = self.template(cmd, target, contents)
-
         # Adapt the path of the figures included (if any)
         re_img = "!\[.*\]\((.+)\)"  # Regex to find the figures
         for match in re.finditer(re_img, contents):
             contents = contents.replace(match.group(1), os.path.join(dir_path, match.group(1)))
-
         return cmd, openAfter, contents
 
     def buildCommand(self, target):
@@ -157,7 +156,7 @@ class PandocConvertorCommand(sublime_plugin.TextCommand):
             Take the target and return the command and the output file
         """
         # Extract the filename
-        file_name = self.view.file_name().encode(sys.getfilesystemencoding())
+        file_name = self.view.file_name()
         filepath = os.path.splitext(file_name)[0]
         dir_path = os.path.split(file_name)[0]
         if not self.view.file_name(): raise Exception("Buffer must be saved!")
@@ -165,17 +164,14 @@ class PandocConvertorCommand(sublime_plugin.TextCommand):
             output_file = filepath + ".pdf"
         else:
             output_file = filepath + "." + target
-
         # Adding separated blocks of text to run the command in sublime text
         cmd = ['pandoc', '--smart', '--standalone']
         # Check for options in the Pandoc file
         cmd, openAfter, contents = self.opt(cmd, target, dir_path)
-
         # Create a temporary file to handle the contents
         tmp_md = tempfile.NamedTemporaryFile(delete=False, suffix=".md")
         tmp_md.write(contents)
         tmp_md.close()
-
         # Complete the command function
         if target != 'pdf':
             cmd.append('-t')
@@ -183,7 +179,6 @@ class PandocConvertorCommand(sublime_plugin.TextCommand):
         cmd.append(tmp_md.name)
         cmd.append("-o")
         cmd.append(output_file)
-
         return cmd, output_file, openAfter
 
     def status(self, filename):
