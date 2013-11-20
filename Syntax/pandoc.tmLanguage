@@ -147,9 +147,21 @@
 		</dict>
 		<dict>
 			<key>comment</key>
-			<string>Blockquote text</string>
-			<key>match</key>
-			<string>^\s+\s+\s+\s+[^\s\*0-9](.+)</string>
+			<string>Code block</string>
+			<key>begin</key>
+			<string>```</string>
+			<key>end</key>
+			<string>```</string>
+			<key>name</key>
+			<string>code.pandoc</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Code block</string>
+			<key>begin</key>
+			<string>~~~</string>
+			<key>end</key>
+			<string>~~~</string>
 			<key>name</key>
 			<string>code.pandoc</string>
 		</dict>
