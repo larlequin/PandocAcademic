@@ -60,7 +60,7 @@
 			<key>comment</key>
 			<string>Italic</string>
 			<key>match</key>
-			<string>\*(.)+\*</string>
+			<string>\*([^\s\*][^\*]*)\*|_([^\s_][^_]*)_</string>
 			<key>name</key>
 			<string>punctuation.definition.italic.markdown</string>
 		</dict>
@@ -68,15 +68,23 @@
 			<key>comment</key>
 			<string>Bold</string>
 			<key>match</key>
-			<string>\*\*(.)+\*\*</string>
+			<string>\*\*([^\s\*][^\*]*)\*\*|__([^\s\*][^\*]*)__</string>
 			<key>name</key>
 			<string>punctuation.definition.bold.markdown</string>
 		</dict>
 		<dict>
 			<key>comment</key>
+			<string>Inline Math LaTeX</string>
+			<key>match</key>
+			<string>\$([^\s\$][^\$]*)\$</string>
+			<key>name</key>
+			<string>math.pandoc</string>
+		</dict>
+		<dict>
+			<key>comment</key>
 			<string>Math LaTeX</string>
 			<key>match</key>
-			<string>\$([^\$]+)\$</string>
+			<string>\$\$([^\$]+)\$\$</string>
 			<key>name</key>
 			<string>math.pandoc</string>
 		</dict>
@@ -139,9 +147,21 @@
 		</dict>
 		<dict>
 			<key>comment</key>
-			<string>Blockquote text</string>
-			<key>match</key>
-			<string>^\s+\s+\s+\s+(.+)</string>
+			<string>Code block</string>
+			<key>begin</key>
+			<string>```</string>
+			<key>end</key>
+			<string>```</string>
+			<key>name</key>
+			<string>code.pandoc</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Code block</string>
+			<key>begin</key>
+			<string>~~~</string>
+			<key>end</key>
+			<string>~~~</string>
 			<key>name</key>
 			<string>code.pandoc</string>
 		</dict>
