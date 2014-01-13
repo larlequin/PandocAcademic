@@ -18,8 +18,7 @@
 			<key>comment</key>
 			<string>Metainformation of the files such as Title, Author, Date</string>
 			<key>match</key>
-			<string>^(%+([^
-]+))</string>
+			<string>^(%+([^\n]+))</string>
 			<key>name</key>
 			<string>metainfo.source.pandoc</string>
 		</dict>
@@ -45,17 +44,45 @@
 			<key>match</key>
 			<string>^(-{3,})(?=[ 	]*$)</string>
 			<key>name</key>
-			<string>markup.heading.2.markdown</string>
+			<string>markup.heading.markdown</string>
 		</dict>
 		<dict>
 			<key>comment</key>
 			<string>Heading</string>
 			<key>match</key>
-			<string>^#+([^
-]+)</string>
+			<string>^#+([^\.]+)(.*)$</string>
 			<key>name</key>
-			<string>markup.heading.2.markdown</string>
+			<string>markup.heading.markdown</string>
 		</dict>
+
+		<!-- enable these to match lists -->
+		<!-- 
+		<dict>
+			<key>comment</key>
+			<string>Magic Numbered List</string>
+			<key>match</key>
+			<string>^\s*#\.+(\s+)(.*)$</string>
+			<key>name</key>
+			<string>markup.list.ordered</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Manual Numbered List</string>
+			<key>match</key>
+			<string>^(\s*)[\()]?\d+([\.\)])(\s+)(.*)$</string>
+			<key>name</key>
+			<string>markup.list.ordered</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Unordered List</string>
+			<key>match</key>
+			<string>^(\s*)([\*\+-]+)(\s+)(.*)$</string>
+			<key>name</key>
+			<string>markup.list.unordered</string>
+		</dict>
+		-->
+
 		<dict>
 			<key>comment</key>
 			<string>Italic</string>
@@ -88,6 +115,49 @@
 			<key>name</key>
 			<string>math.pandoc</string>
 		</dict>
+
+
+		<dict>
+			<key>begin</key>
+			<string>^\s*\[\^</string>
+			<key>end</key>
+			<string>\]:</string>
+			<key>name</key>
+			<string>footnote.num.pandoc</string>
+			
+			<!--
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>[A-Za-z0-9]+</string>
+					<key>name</key>
+					<string>footnote.num.pandoc</string>
+				</dict>
+			</array>
+			-->
+		</dict>
+
+		<dict>
+			<key>begin</key>
+			<string>\[\^</string>
+			<key>end</key>
+			<string>\]</string>
+			<key>name</key>
+			<string>footnote.delim.pandoc</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>[A-Za-z0-9]+</string>
+					<key>name</key>
+					<string>footnote.num.pandoc</string>
+				</dict>
+			</array>
+		</dict>
+	
+
+
 		<dict>
 			<key>begin</key>
 			<string>\[</string>
@@ -99,7 +169,7 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>@[A-Za-z0-9_]+</string>
+					<string>@[A-Za-z0-9_:]+</string>
 					<key>name</key>
 					<string>citation.pandoc</string>
 				</dict>
@@ -109,7 +179,7 @@
 			<key>comment</key>
 			<string>Reference citation</string>
 			<key>match</key>
-			<string>@[A-Za-z0-9_]+</string>
+			<string>\s+@[A-Za-z0-9_:]+</string>
 			<key>name</key>
 			<string>citation.pandoc</string>
 		</dict>
@@ -141,7 +211,15 @@
 			<key>comment</key>
 			<string>Footnotes and notes</string>
 			<key>match</key>
-			<string>^\[\^(.*)\]:</string>
+			<string>^\[\^(.*)\]:(.*)$</string>
+			<key>name</key>
+			<string>note.pandoc</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Footnotes and notes</string>
+			<key>match</key>
+			<string>\^\[(.*)\]</string>
 			<key>name</key>
 			<string>note.pandoc</string>
 		</dict>
@@ -169,7 +247,7 @@
 			<key>comment</key>
 			<string>Blockquote text</string>
 			<key>match</key>
-			<string>^&gt;\s*(.*)</string>
+			<string>^(&gt;)+\s*(.*)</string>
 			<key>name</key>
 			<string>quote.pandoc</string>
 		</dict>
@@ -191,13 +269,32 @@
 			</array>
 		</dict>
 		<dict>
+			<key>begin</key>
+			<string>\{</string>
+			<key>end</key>
+			<string>\}</string>
+			<key>name</key>
+			<string>tag.pandoc</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\.+</string>
+					<key>name</key>
+					<string>tag.pandoc</string>
+				</dict>
+			</array>
+		</dict>
+		<!--
+		<dict>
 			<key>comment</key>
 			<string>Balise text</string>
 			<key>match</key>
 			<string>".+"</string>
 			<key>name</key>
-			<string>string</string>
+			<string>balise.pandoc.text</string>
 		</dict>
+	  -->
 	</array>
 	<key>scopeName</key>
 	<string>text.pandoc</string>

@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>comment</key>
+	<string>http://crazymcphee.net</string>
+	<key>name</key>
+	<string>The Wine-Dark Sea</string>
+	<key>settings</key>
+	<array>
+		<dict>
+			<key>settings</key>
+			<dict>
+				<key>background</key>
+				<string>mintcream</string>
+				<!-- lightgoldenrodyellow, antiquewhite, oldlace, linen, whitesmoke, lemonchiffon, ghostwhite, mintcream are all nice -->
+				<key>caret</key>
+				<string>darkorange</string>
+				<key>foreground</key>
+				<string>#22222a</string>
+				<key>invisibles</key>
+				<string>grey</string> 
+				<key>lineHighlight</key>
+				<string>lightgoldenrodyellow</string>
+				<key>selection</key>
+				<string>lemonchiffon</string>
+			</dict>
+		</dict>
+
+		<dict>
+			<key>name</key>
+			<string>Comment</string>
+			<key>scope</key>
+			<string>comment</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>darkseagreen</string>
+			</dict>
+			<!-- a comment -->
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Foreground</string>
+			<key>scope</key>
+			<string>keyword.operator.class, constant.other, source.php.embedded.line</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string></string>
+				<key>foreground</key>
+				<string>darkgray</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Variable, String Link, Regular Expression, Tag Name</string>
+			<key>scope</key>
+			<string>variable, support.other.variable, string.other.link, string.regexp, entity.name.tag, entity.other.attribute-name, meta.tag, declaration.tag</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string></string>
+				<key>foreground</key>
+				<string>darkblue</string>
+			</dict>
+		</dict>
+
+		<dict>
+			<key>name</key>
+			<string>Number, Constant, Function Argument, Tag Attribute, Embedded</string>
+			<key>scope</key>
+			<string>constant.numeric, constant.language, support.constant, constant.character, variable.parameter, punctuation.section.embedded, keyword.other.unit</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string></string>
+				<key>foreground</key>
+				<string>darkred</string>
+			</dict>
+		</dict>
+
+		<dict>
+			<key>name</key>
+			<string>Class, Support</string>
+			<key>scope</key>
+			<string>entity.name.class, entity.name.type.class, support.type, support.class</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string></string>
+				<key>foreground</key>
+				<string>midnightblue</string>
+			</dict>
+		</dict>
+		
+		<dict>
+			<key>name</key>
+			<string>String, Symbols, Inherited Class, Markup Heading</string>
+			<key>scope</key>
+			<string>string, constant.other.symbol, entity.other.inherited-class</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string></string>
+				<key>foreground</key>
+				<string>darkslategray</string>
+			</dict>
+		</dict>
+		
+		<dict>
+			<key>name</key>
+			<string>Operator, Misc</string>
+			<key>scope</key>
+			<string>keyword.operator, constant.other.color</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>darkslategray</string>
+			</dict>
+		</dict>
+		
+
+		<dict>
+			<key>name</key>
+			<string>Function, Special Method, Block Level</string>
+			<key>scope</key>
+			<string>entity.name.function, meta.function-call, support.function, keyword.other.special-method, meta.block-level</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string></string>
+				<key>foreground</key>
+				<string>darkslategrey</string>
+			</dict>
+		</dict>
+
+		<dict>
+			<key>name</key>
+			<string>Keyword, Storage</string>
+			<key>scope</key>
+			<string>keyword, storage, storage.type, entity.name.tag.css</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string></string>
+				<key>foreground</key>
+				<string>dimgrey</string>
+			</dict>
+		</dict>
+
+		<dict>
+			<key>name</key>
+			<string>Invalid</string>
+			<key>scope</key>
+			<string>invalid</string>
+			<key>settings</key>
+			<dict>
+				<key>background</key>
+				<string>red</string>
+				<key>fontStyle</key>
+				<string></string>
+				<key>foreground</key>
+				<string>yellow</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Separator</string>
+			<key>scope</key>
+			<string>meta.separator</string>
+			<key>settings</key>
+			<dict>
+				<key>background</key>
+				<string>#82A3BF</string>
+				<key>foreground</key>
+				<string>#CED2CF</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Deprecated</string>
+			<key>scope</key>
+			<string>invalid.deprecated</string>
+			<key>settings</key>
+			<dict>
+				<key>background</key>
+				<string>#B798BF</string>
+				<key>fontStyle</key>
+				<string></string>
+				<key>foreground</key>
+				<string>#CED2CF</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Diff foreground</string>
+			<key>scope</key>
+			<string>markup.inserted.diff, markup.deleted.diff, meta.diff.header.to-file, meta.diff.header.from-file</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>black</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Diff insertion</string>
+			<key>scope</key>
+			<string>markup.inserted.diff, meta.diff.header.to-file</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#718c00</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Diff deletion</string>
+			<key>scope</key>
+			<string>markup.deleted.diff, meta.diff.header.from-file</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#c82829</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Diff header</string>
+			<key>scope</key>
+			<string>meta.diff.header.from-file, meta.diff.header.to-file</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#FFFFFF</string>
+				<key>background</key>
+				<string>#4271ae</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Diff range</string>
+			<key>scope</key>
+			<string>meta.diff.range</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string>italic</string>
+				<key>foreground</key>
+				<string>#3e999f</string>
+			</dict>
+		</dict>
+
+<!-- markdown/pandoc is below here -->
+		<dict>
+			<key>name</key>
+			<string>Markup Heading</string>
+			<key>scope</key>
+			<string>markup.heading</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string>italic</string>
+				<key>foreground</key>
+				<string>darkslateblue</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Italic Text</string>
+			<key>scope</key>
+			<string>punctuation.definition.italic.markdown, balise.pandoc</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string>italic</string>
+				<key>foreground</key>
+				<string>darkslateblue</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Bold Text</string>
+			<key>scope</key>
+			<string>punctuation.definition.bold.markdown</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string>bold</string>
+				<key>foreground</key>
+				<string>darkslateblue</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Quote text</string>
+			<key>scope</key>
+			<string>quote.pandoc</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string>italic</string>
+				<key>foreground</key>
+				<string></string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Footnote brackets, Citation brackets</string>
+			<key>scope</key>
+			<string>citation.bracket.pandoc, footnote.bracket.pandoc</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string></string>
+				<key>foreground</key>
+				<string>darkslategrey</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Citation</string>
+			<key>scope</key>
+			<string>citation.pandoc</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string></string>
+				<key>foreground</key>
+				<string>maroon</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Footnotes</string>
+			<key>scope</key>
+			<string>footnote.num.pandoc, footnote.text.pandoc, footnote.delim.pandoc</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string></string>
+				<key>foreground</key>
+				<string>slategrey</string>
+			</dict>
+		</dict>
+
+		<dict>
+			<key>name</key>
+			<string>Inline footnote</string>
+			<key>scope</key>
+			<string>note.pandoc</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>darkgrey</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Tag</string>
+			<key>scope</key>
+			<string>tag.pandoc</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string></string>
+				<key>foreground</key>
+				<string>darkslategrey</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Pandoc Math</string>
+			<key>scope</key>
+			<string>math.pandoc</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string></string>
+				<key>foreground</key>
+				<string>seagreen</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Pandoc Metainfo</string>
+			<key>scope</key>
+			<string>metainfo.source.pandoc</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>darkseagreen</string>
+			</dict>
+		</dict>
+
+		<dict>
+			<key>name</key>
+			<string>Pandoc Code Block</string>
+			<key>scope</key>
+			<string>code.pandoc</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string></string>
+				<key>foreground</key>
+				<string>olivedrab</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Links</string>
+			<key>scope</key>
+			<string>link.pandoc</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string></string>
+				<key>foreground</key>
+				<string>darkslategrey</string>
+			</dict>
+		</dict>
+
+		<!-- only enable these if you want lists to look different -->
+		<!--
+		<dict>
+			<key>name</key>
+			<string>Numbered List</string>
+			<key>scope</key>
+			<string>markup.list.ordered</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>red</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Unordered List</string>
+			<key>scope</key>
+			<string>markup.list.unordered</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>yellow</string>
+			</dict>
+		</dict>
+		-->
+
+	</array>
+	<key>uuid</key>
+	<string>33D8C715-AD3A-455B-8DF2-56F708909FFE</string>
+</dict>
+</plist>
