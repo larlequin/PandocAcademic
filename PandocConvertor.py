@@ -123,6 +123,8 @@ class PandocConvertorCommand(sublime_plugin.TextCommand):
             cmd.append("--toc")
         if '[[NUM]]' in contents:
             cmd.append("-N")
+        if '[[MATH]]' in contents:
+            cmd.append("-m")
         if regex_class.search(contents):
             tex_class = regex_class.search(contents).groups()[0]
             cmd.append('-V')

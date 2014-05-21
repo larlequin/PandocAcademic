@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[
+<!-- [[MATH]] --> ${1}
+]]></content>
+    <tabTrigger>mathml</tabTrigger>
+    <scope>text.pandoc</scope>
+    <description>Let pandoc render with the -m option for latexmathml</description>
+</snippet>
