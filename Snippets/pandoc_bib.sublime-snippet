@@ -3,6 +3,6 @@
 <!-- [[BIB]] [[BIBSTYLE=${1:add a style name}]] --> ${2}
 ]]></content>
     <tabTrigger>bib</tabTrigger>
-    <scope>text.pandoc</scope>
+    <scope>text.pandoc, text.html.markdown.pandoc</scope>
     <description>Add the option to handle bibliography and its style</description>
 </snippet>

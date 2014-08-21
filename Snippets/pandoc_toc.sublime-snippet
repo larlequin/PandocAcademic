@@ -3,6 +3,6 @@
 <!-- [[TOC]] --> ${1}
 ]]></content>
     <tabTrigger>toc</tabTrigger>
-    <scope>text.pandoc</scope>
+    <scope>text.pandoc, text.html.markdown.pandoc</scope>
     <description>Add the option to add a table of content</description>
 </snippet>

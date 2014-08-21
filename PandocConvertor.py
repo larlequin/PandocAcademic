@@ -43,6 +43,7 @@ class PandocConvertorCommand(sublime_plugin.TextCommand):
     def is_enabled(self):
         if self.view.score_selector(0, "text.pandoc") > 0 or \
             self.view.score_selector(0, "text.html.markdown") > 0 or \
+            self.view.score_selector(0, "text.html.markdown.pandoc") > 0 or \
             self.view.score_selector(0, "text.html.markdown.multimarkdown") > 0:
             return True
 

@@ -3,6 +3,6 @@
 [${1:prefix}@${2:CitationKey}] ${3}
 ]]></content>
     <tabTrigger>ci</tabTrigger>
-    <scope>text.pandoc</scope>
+    <scope>text.pandoc, text.html.markdown.pandoc</scope>
     <description>Add a complete citation</description>
 </snippet>

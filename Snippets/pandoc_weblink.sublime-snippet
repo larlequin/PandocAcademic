@@ -3,6 +3,6 @@
 [${1:link}](http://${2:url} "${3:title}")${4}
 ]]></content>
     <tabTrigger>link</tabTrigger>
-    <scope>text.pandoc</scope>
+    <scope>text.pandoc, text.html.markdown.pandoc</scope>
     <description>Add a website link</description>
 </snippet>
