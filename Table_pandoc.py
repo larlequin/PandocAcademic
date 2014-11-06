@@ -4,6 +4,7 @@
 #
 # GT Vallet -- Lyon 2 University
 # 2012/07/26 -- v01
+# 2014/11/06 -- v01.2 -- Convert the script to Python 3 / Sublime Text 3
 
 import re
 import sublime
@@ -28,9 +29,9 @@ class PandocTableCommand(sublime_plugin.TextCommand):
         # Length max by column
         col_widths = self.width_col(nb_col, txt)
         # Build the final table and replace the current selection
-        table = self.final_table(txt, col_widths)
+        table = self.final_table(txt, list(col_widths))
         self.view.replace(edit, sel, table)
-        print "Table formatted"
+        print("Table formatted")
 
 
     def format_txt(self, txt):
@@ -91,6 +92,9 @@ class PandocTableCommand(sublime_plugin.TextCommand):
         for idx, item in enumerate(line):
             if item == "NA":
                 item = ""
+            print(widths)
+            print('----------------')
+            print(idx)
             space = widths[idx]-len(item)-1
             to_print.append('| ' + item + " " * space)
         return "".join(to_print)

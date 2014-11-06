@@ -15,6 +15,7 @@
 # 2012/07/20  -- v.02.5 -- Fix the bug when pictures are included, convert PDF
 #                           doesn't run. Need to change the path of the figures
 # 2012/08/24  --  v.2.6 -- Search for paths before looking for default folders
+# 2014/11/06  --  v.3.0 -- Convert the script to Python 3 / Sublime Text 3
 #
 # Inspired and cannibalized from Pandoc Renderer plugin
 #  https://github.com/jclement/SublimePandoc
@@ -29,8 +30,6 @@ import sys
 import os
 import re
 
-reload(sys)
-sys.setdefaultencoding("utf-8")
 
 class PandocConvertorCommand(sublime_plugin.TextCommand):
     """ Convert a Pandoc file to HTML or Docx fileformat
@@ -50,7 +49,7 @@ class PandocConvertorCommand(sublime_plugin.TextCommand):
         path = os.path.join(sublime.packages_path(), 'Pandoc Academic',
                                 'Styles', filename)
         if os.path.isfile(path):
-            print "Template file found in the default template folder"
+            print("Template file found in the default template folder")
         else:
             raise Exception(filename + " file not found!")
         return path
@@ -172,7 +171,7 @@ class PandocConvertorCommand(sublime_plugin.TextCommand):
         cmd, openAfter, contents = self.opt(cmd, target, dir_path)
         # Create a temporary file to handle the contents
         tmp_md = tempfile.NamedTemporaryFile(delete=False, suffix=".md")
-        tmp_md.write(contents)
+        tmp_md.write(bytes(contents,'UTF-8'))
         tmp_md.close()
         # Complete the command function
         if target != 'pdf':
@@ -188,10 +187,10 @@ class PandocConvertorCommand(sublime_plugin.TextCommand):
         """
         if os.path.exists(filename):
             self.view.set_status('pandoc', 'File converted to ' + filename)
-            print "File converted to:", filename
+            print("File converted to:", filename)
         else:
             self.view.set_status('pandoc', 'Error in the conversion!')
-            print "Unable to convert the file! Please check your options"
+            print("Unable to convert the file! Please check your options")
         time.sleep(2)
         self.view.erase_status('pandoc')
 
