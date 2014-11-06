@@ -1,6 +1,6 @@
-# Pandoc Academic Plugin for Sublime Text 2 #
+# Pandoc Academic Plugin for Sublime Text 2/3 #
 
-A [Sublime Text 2](http://www.sublimetext.com/2) plugin to handle [Pandoc](http://johnmacfarlane.net/pandoc/).
+A [Sublime Text 2/3](http://www.sublimetext.com/2) plugin to handle [Pandoc](http://johnmacfarlane.net/pandoc/).
 The plugin proposes:
 
 - a syntax highlighting tool associated with two dark color themes,
@@ -15,6 +15,8 @@ Based on the [Pandoc Render plugin](https://github.com/jclement/SublimePandoc).
 Plugin version: v1.1 -- Automatically launch the file-associated program after the compilation.
 
 Plugin version: v1.2 -- Add the grid table module and the LaTeX class option.
+
+Plugin version: v1.3 -- Convert the script to run on Python 3 / Sublime Text 3
 
 
 ## Installation ##
