@@ -3,6 +3,6 @@
 **${1:words in bold}** ${2}
 ]]></content>
     <tabTrigger>bo</tabTrigger>
-    <scope>text.pandoc</scope>
+    <scope>text.pandoc, text.html.markdown.pandoc</scope>
     <description>Bold style</description>
 </snippet>

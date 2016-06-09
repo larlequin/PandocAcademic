@@ -3,6 +3,6 @@
 <!-- ${1:Your comment} --> ${2}
 ]]></content>
     <tabTrigger>co</tabTrigger>
-    <scope>text.pandoc</scope>
+    <scope>text.pandoc, text.html.markdown.pandoc</scope>
     <description>Add a comment</description>
 </snippet>

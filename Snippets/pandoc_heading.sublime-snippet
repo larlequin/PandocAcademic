@@ -6,6 +6,6 @@
 ${4}
 ]]></content>
     <tabTrigger>%%</tabTrigger>
-    <scope>text.pandoc</scope>
+    <scope>text.pandoc, text.html.markdown.pandoc</scope>
     <description>Add the heading of the file</description>
 </snippet>

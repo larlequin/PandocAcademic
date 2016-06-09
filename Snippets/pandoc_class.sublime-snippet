@@ -3,6 +3,6 @@
 <!-- [[CLASS=${1}]] --> ${2}
 ]]></content>
     <tabTrigger>class</tabTrigger>
-    <scope>text.pandoc</scope>
+    <scope>text.pandoc, text.html.markdown.pandoc</scope>
     <description>Add the option to add a custom LaTeX class</description>
 </snippet>
