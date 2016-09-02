@@ -103,11 +103,11 @@ The following hints can be added in your document to flip on additional features
 
 - **\<!-- \[\[TOC]] -->**: Add a Table of Contents to the top of your output document.
 - **\<!-- \[\[NUM]] -->**: Turn on numbering of sections.
-- **\<!-- \[\[BIB]] -->**: Add the bibliography option to handle citation and reference (@citationkey). The bibliography file should have the same name than the Pandoc file.
+- **\<!-- \[\[BIB]] -->**: Add the bibliography option to handle citation and reference (@citationkey). The bibliography file should have the same name as the Pandoc file.
 - **\<!-- \[\[BIBSTYLE=name]] -->**: Specify a csl bibliography style.
 - **\<!-- \[\[DOCSTYLE=name]] -->**: Specify a template for the convertion to HTML or DOCX or theme in Beamer.
 - **\<!-- \[\[CLASS=name]] -->**: Specify a class type to use for a PDF, LaTeX or Beamer document.
-- **\<!-- \[\[HEADER]] -->**: Add the option to add a custom header for the convertion to Beamer (the file should be in the same directory than the Pandoc file).
+- **\<!-- \[\[HEADER]] -->**: Add the option to add a custom header for the convertion to Beamer (the file should be in the same directory as the Pandoc file).
 - **\<!-- \[\[NORENDER]] -->**: Option to not automatically start the associated program.
 
 
