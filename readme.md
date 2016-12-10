@@ -27,9 +27,8 @@ Go to Preferences > Package Control > Install Package and search for "Pandoc Aca
 You can also install the plugin manually. Download the latest version from Github and copy the folder into your Sublime Text 2 Packages folder.
 (for instance in Linux: ~/.config/sublime-text-2/Packages).
 
-~~~~~~~~~~~~~ {#mycode .sh}
-$ git clone git://github.com/larlequin/Pandoc-Academic-Plugin.git
-~~~~~~~~~~~~~~~~~~~~~~
+
+    $ git clone git@github.com:larlequin/PandocAcademic.git
 
 
 ## Dependencies ##
