@@ -56,7 +56,7 @@
 		</dict>
 
 		<!-- enable these to match lists -->
-		<!-- 
+		<!--
 		<dict>
 			<key>comment</key>
 			<string>Magic Numbered List</string>
@@ -111,11 +111,10 @@
 			<key>comment</key>
 			<string>Math LaTeX</string>
 			<key>match</key>
-			<string>\$\$([^\$]+)\$\$</string>
+			<string>\$\$([^\$]*)\$\$</string>
 			<key>name</key>
 			<string>math.pandoc</string>
 		</dict>
-
 
 		<dict>
 			<key>begin</key>
@@ -124,7 +123,7 @@
 			<string>\]:</string>
 			<key>name</key>
 			<string>footnote.num.pandoc</string>
-			
+
 			<!--
 			<key>patterns</key>
 			<array>
@@ -155,7 +154,7 @@
 				</dict>
 			</array>
 		</dict>
-	
+
 
 
 		<dict>
@@ -169,7 +168,7 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>@[A-Za-z0-9_:]+</string>
+					<string>@[A-Za-z0-9_:-]+</string>
 					<key>name</key>
 					<string>citation.pandoc</string>
 				</dict>
@@ -179,7 +178,7 @@
 			<key>comment</key>
 			<string>Reference citation</string>
 			<key>match</key>
-			<string>\s+@[A-Za-z0-9_:]+</string>
+			<string>\s+@[A-Za-z0-9_:-]+|^@[A-Za-z0-9_:-]+</string>
 			<key>name</key>
 			<string>citation.pandoc</string>
 		</dict>
@@ -222,6 +221,16 @@
 			<string>\^\[(.*)\]</string>
 			<key>name</key>
 			<string>note.pandoc</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Math block</string>
+			<key>begin</key>
+			<string>\$\$</string>
+			<key>end</key>
+			<string>\$\$</string>
+			<key>name</key>
+			<string>mathblock.pandoc</string>
 		</dict>
 		<dict>
 			<key>comment</key>
