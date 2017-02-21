@@ -12,17 +12,22 @@
 			<key>settings</key>
 			<dict>
 				<key>background</key>
-				<string>#000000</string>
-				<key>caret</key>
-				<string>#9F9F9F</string>
-				<key>foreground</key>
-				<string>#DEDEDE</string>
-				<key>invisibles</key>
-				<string>#343434</string>
-				<key>lineHighlight</key>
-				<string>#2A2A2A</string>
-				<key>selection</key>
-				<string>#424242</string>
+        <string>#2e2e2e</string>
+
+        <key>caret</key>
+        <string>#FFFFFF</string>
+
+        <key>foreground</key>
+        <string>#dcd7d2</string>
+
+        <key>invisibles</key>
+        <string>#404040</string>
+
+        <key>lineHighlight</key>
+        <string>#333435</string>
+
+        <key>selection</key>
+        <string>#5A647E</string>
 			</dict>
 		</dict>
 		<dict>
@@ -84,6 +89,19 @@
 				<string></string>
 				<key>foreground</key>
 				<string>#E7C547</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Class, Support</string>
+			<key>scope</key>
+			<string>entity.name.class, entity.name.type.class, support.type, support.class, mathblock.pandoc</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string></string>
+				<key>foreground</key>
+				<string>#f9a7cc</string>
 			</dict>
 		</dict>
 		<dict>
